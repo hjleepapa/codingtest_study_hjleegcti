@@ -29,6 +29,7 @@
 ## 참여 하기
 | 주차 | 내용 | 내용 |
 |------|------|------|
+| 카페 |[참여하기](https://cafe.naver.com/dremdeveloper) | 스터디 진행시 매주 내용을 업로드 할 카페 |
 | 스터디방 |[참여하기](https://open.kakao.com/o/glwfIBGg) | 참여코드 : 1457 / 필수입장 |
 | 저자 소통방 |[참여하기](https://open.kakao.com/o/gX0WnTCf)| 8월 10일까지는 제가 별 말 안할수 있습니다. 들어와 계실분은 편히 들어와 계세요|
 
