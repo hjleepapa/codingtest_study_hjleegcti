@@ -1,1 +1,1 @@
-print("study cote");
+print("study cote")
