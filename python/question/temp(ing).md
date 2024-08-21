@@ -38,6 +38,7 @@ print(squares)  # 제곱수를 가진 리스트 -> [0, 1, 4, 9, 16]
 ```
 
 # 2. 리스트의 효율성
+
 | 메서드명   | 동작                               | 리턴값           | 시간 복잡도   | 비고                                                 |
 |:-----------|:-----------------------------------|:-----------------|:--------------|:-----------------------------------------------------|
 | append()   | 리스트의 마지막에 원소를 추가      | None             | O(1)          |                                                      |
@@ -118,6 +119,7 @@ print(my_list)  # [1, 2, 2, 3, 4]
 print(my_set)   # {1, 2, 3, 4}
 ```
 
+
 # 5. 딕셔너리
 - **딕셔너리의 개념**: 딕셔너리는 키-값 쌍으로 이루어진 데이터 구조로, 각 키는 고유하며, 이를 통해 값을 빠르게 검색할 수 있습니다. 딕셔너리는 중괄호 `{}`를 사용해 정의합니다.
 
@@ -143,3 +145,43 @@ my_dict['location'] = 'Wonderland'  # 삽입 -> O(1)
 del my_dict['age']  # 삭제 -> O(1)
 print(my_dict)  # {'name': 'Alice', 'location': 'Wonderland'}
 ```
+
+- **리스트를 딕셔너리 키로 사용할 때 발생하는 오류 예제**: 리스트는 변경 가능한 데이터 타입이기 때문에 딕셔너리의 키로 사용할 수 없습니다. 만약 리스트를 키로 사용하려 하면 `TypeError`가 발생합니다.
+
+```python
+# 리스트를 딕셔너리 키로 사용하려 할 때 발생하는 오류 예제
+try:
+    invalid_dict = {[1, 2]: 'List as key'}
+except TypeError as e:
+    print(f"오류 발생: {e}")
+```
+
+- **딕셔너리의 효율성**:
+  
+| **메서드명** | **동작** | **리턴값** | **시간 복잡도** | **비고** |
+|--------------|----------|------------|-----------------|----------|
+| `get(key, default)` | 주어진 키에 대응하는 값을 반환하며, 키가 존재하지 않으면 `default` 값을 반환 | 해당 키의 값 또는 `default` 값 | O(1) | 키가 없을 때도 오류를 발생시키지 않음 |
+| `keys()` | 딕셔너리의 모든 키를 반환 | 딕셔너리의 키들을 담은 뷰 객체 | O(1) | - |
+| `values()` | 딕셔너리의 모든 값을 반환 | 딕셔너리의 값들을 담은 뷰 객체 | O(1) | - |
+| `items()` | 딕셔너리의 키-값 쌍을 튜플 형태로 반환 | 딕셔너리의 (키, 값) 쌍을 담은 뷰 객체 | O(1) | - |
+| `pop(key)` | 주어진 키에 대응하는 값을 반환하고, 해당 키-값 쌍을 딕셔너리에서 삭제 | 해당 키의 값 | O(1) | 키가 존재하지 않으면 `KeyError` 발생 |
+
+
+```python
+# 딕셔너리 메서드 사용 예제
+sample_dict = {'fruit': 'apple', 'color': 'red', 'quantity': 10}
+
+# get 메서드 사용
+print(sample_dict.get('fruit'))  # 'apple'
+print(sample_dict.get('price', 'Not Found'))  # 'Not Found'
+
+# keys, values, items 메서드 사용
+print(sample_dict.keys())    # dict_keys(['fruit', 'color', 'quantity'])
+print(sample_dict.values())  # dict_values(['apple', 'red', 10])
+print(sample_dict.items())   # dict_items([('fruit', 'apple'), ('color', 'red'), ('quantity', 10)])
+
+# pop 메서드 사용
+sample_dict.pop('quantity')
+print(sample_dict)  # {'fruit': 'apple', 'color': 'red'}
+```
+
