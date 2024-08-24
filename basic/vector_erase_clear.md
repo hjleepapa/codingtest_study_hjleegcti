@@ -10,30 +10,42 @@
 #include <vector>
 #include <chrono>
 
+using namespace std;
+
 int main() {
     // 5000만 개의 요소를 가진 벡터 생성
-    size_t num_elements = 50000000;
-    std::vector<int> vec(num_elements, 1);
+    size_t num_elements = 50000000;  // 벡터의 요소 개수 지정
+    vector<int> vec(num_elements, 1);  // 5000만 개의 요소가 1로 초기화된 벡터 생성
 
     // erase() 함수의 실행 시간을 측정
-    auto start_erase = std::chrono::high_resolution_clock::now();
-    vec.erase(vec.begin(), vec.end()); // 모든 요소 삭제
-    auto end_erase = std::chrono::high_resolution_clock::now();
-    auto duration_erase = std::chrono::duration_cast<std::chrono::nanoseconds>(end_erase - start_erase);
-    std::cout << "erase() duration: " << duration_erase.count() << " nanoseconds" << std::endl;
+    auto start_erase = chrono::high_resolution_clock::now();  // 현재 시간을 기록하여 시작 시간 저장
+    vec.erase(vec.begin(), vec.end());  // 벡터의 모든 요소를 삭제 (시작부터 끝까지 삭제)
+    auto end_erase = chrono::high_resolution_clock::now();  // 모든 요소 삭제 후 현재 시간 기록
+    auto duration_erase = chrono::duration_cast<chrono::nanoseconds>(end_erase - start_erase);  // 시작과 끝 시간의 차이를 나노초로 계산
+    cout << "erase() duration: " << duration_erase.count() << " nanoseconds" << endl;  // erase() 함수의 실행 시간 출력
 
     // 벡터를 다시 초기화
-    vec = std::vector<int>(num_elements, 1);
+    vec = vector<int>(num_elements, 1);  // 벡터를 다시 5000만 개의 요소로 초기화
 
     // clear() 함수의 실행 시간을 측정
-    auto start_clear = std::chrono::high_resolution_clock::now();
-    vec.clear();
-    auto end_clear = std::chrono::high_resolution_clock::now();
-    auto duration_clear = std::chrono::duration_cast<std::chrono::nanoseconds>(end_clear - start_clear);
-    std::cout << "clear() duration: " << duration_clear.count() << " nanoseconds" << std::endl;
+    auto start_clear = chrono::high_resolution_clock::now();  // clear() 함수 실행 전 현재 시간을 기록하여 시작 시간 저장
+    vec.clear();  // 벡터의 모든 요소를 삭제
+    auto end_clear = chrono::high_resolution_clock::now();  // 모든 요소 삭제 후 현재 시간 기록
+    auto duration_clear = chrono::duration_cast<chrono::nanoseconds>(end_clear - start_clear);  // 시작과 끝 시간의 차이를 나노초로 계산
+    cout << "clear() duration: " << duration_clear.count() << " nanoseconds" << endl;  // clear() 함수의 실행 시간 출력
 
-    return 0;
+    return 0;  // 프로그램 종료
 }
+
+// 예시 출력 (실제 시간은 시스템 및 환경에 따라 다를 수 있음)
+// erase() duration: 150000000 nanoseconds
+// clear() duration: 50000000 nanoseconds
+
+// 출력 결과가 이렇게 나오는 이유:
+// - `erase()` 함수는 벡터의 시작부터 끝까지의 모든 요소를 개별적으로 제거하고 각 요소마다 벡터의 내부 상태를 갱신해야 하므로 시간이 더 많이 걸릴 수 있습니다. 이는 특히 벡터의 크기가 클수록 성능에 영향을 미칩니다.
+// - `clear()` 함수는 벡터의 크기를 0으로 설정하고 내부 메모리를 유지하기 때문에 상대적으로 더 빠릅니다. 내부 메모리 할당을 변경하지 않으므로 오버헤드가 적습니다.
+// - 이러한 이유로 `clear()`는 대량의 요소를 삭제할 때 `erase()`보다 일반적으로 더 효율적입니다.
+
 ```
 
 ## 왜 `clear()`가 `erase()`보다 빠른가?
