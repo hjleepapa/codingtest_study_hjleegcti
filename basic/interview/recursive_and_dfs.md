@@ -1,17 +1,31 @@
-
 # 목차
-1. [재귀 함수에서 '재귀 깊이'를 줄이기 위한 방법](#재귀-함수에서-재귀-깊이를-줄이기-위한-방법)
-2. [함수 호출 스택에서의 메모리 누수 문제와 방지 방법](#함수-호출-스택에서의-메모리-누수-문제와-방지-방법)
-3. [스택 기반 메모리 관리와 힙 기반 메모리 관리 비교](#스택-기반-메모리-관리와-힙-기반-메모리-관리-비교)
-4. [순환 그래프에서 모든 사이클을 탐지하는 DFS 알고리즘](#순환-그래프에서-모든-사이클을-탐지하는-dfs-알고리즘)
-5. [재귀적 백트래킹에서의 'Combinatorial Explosion' 문제 해결 전략](#재귀적-백트래킹에서의-combinatorial-explosion-문제-해결-전략)
-6. [DFS를 사용하는 것이 BFS보다 유리한 경우](#dfs를-사용하는-것이-bfs보다-유리한-경우)
-7. [실전 문제](#실전-문제)
-    - [문제 1: 피보나치 수열 계산](#문제-1-피보나치-수열-계산)
-    - [문제 2: 이진 트리의 최대 깊이 찾기](#문제-2-이진-트리의-최대-깊이-찾기)
-    - [문제 3: 방향성 그래프에서 경로 탐색](#문제-3-방향성-그래프에서-경로-탐색)
-
+0. 면접 질문
+1. 재귀 함수에서 재귀 깊이를 줄이기 위한 방법
+2. 함수 호출 스택에서의 메모리 누수 문제와 방지 방법
+3. 스택 기반 메모리 관리와 힙 기반 메모리 관리 비교
+4. 순환 그래프에서 모든 사이클을 탐지하는 DFS 알고리즘
+5. 재귀적 백트래킹에서의 'Combinatorial Explosion' 문제 해결 전략
+6. DFS를 사용하는 것이 BFS보다 유리한 경우
+7. 실전 문제
+    - 문제 1: 피보나치 수열 계산
+    - 문제 2: 이진 트리의 최대 깊이 찾기
+    - 문제 3: 방향성 그래프에서 경로 탐색
 ---
+
+
+## 면접 질문
+
+1. 재귀 함수에서 '재귀 깊이 제한'에 도달하지 않도록 최적화하는 일반적인 기법들은 무엇이며, 각각의 장단점에 대해 설명해 주세요.
+2. 함수 호출 스택에서 발생할 수 있는 메모리 누수의 원인과 이를 방지하기 위한 프로그래밍 기법은 무엇이 있을까요?
+3. 스택 기반 메모리 관리와 힙 기반 메모리 관리의 구조적 차이점과 각각의 메모리 관리 방식이 가지는 장단점에 대해 설명해 주세요.
+4. 재귀적 백트래킹 알고리즘에서 발생할 수 있는 '조합 폭발 문제(Combinatorial Explosion)'를 효율적으로 해결하기 위한 전략에는 어떤 것들이 있나요?
+5. 깊이 우선 탐색(DFS)과 너비 우선 탐색(BFS) 알고리즘의 메모리 사용 패턴과 시간 복잡도를 비교하고, DFS가 더 적합한 문제 유형에는 어떤 것들이 있는지 설명해 주세요.
+6. 재귀 호출의 성능 최적화를 위한 꼬리 재귀 최적화(Tail Call Optimization)에 대해 설명해주세요.
+7. 자바의 가비지 컬렉션(Garbage Collection) 메커니즘이 작동하는 원리를 설명하고, 가비지 컬렉터가 비효율적으로 작동하여 메모리 누수가 발생할 수 있는 시나리오를 예시와 함께 설명해 주세요.
+8. 순환 그래프에서 모든 사이클을 탐지하기 위해 깊이 우선 탐색(DFS) 알고리즘을 사용할 때 고려해야 할 주요 요소와 이를 효과적으로 구현하기 위한 설계 원칙은 무엇인가요?
+9. 이진 트리의 최대 깊이를 찾는 문제에서 재귀적 접근법과 반복적 접근법의 시간 및 공간 복잡도를 비교하고, 각 접근법이 적합한 상황을 예시와 함께 설명해 주세요.
+
+
 
 ## 재귀 깊이를 줄이기 위한 방법
 
@@ -244,11 +258,114 @@ public class MemoryLeakExample {
 
 순환 그래프에서 사이클을 탐지하기 위해 DFS를 사용할 수 있습니다. DFS를 수행하면서 방문한 노드를 추적하고, 이미 방문한 노드에 다시 도달했을 때 사이클이 존재한다고 판단할 수 있습니다. 이를 위해 방문 기록을 유지하고, 현재 탐색 중인 노드의 경로를 저장합니다.
 
+
 ## 재귀적 백트래킹에서의 'Combinatorial Explosion' 문제 해결 전략
 
-- **가지치기(Pruning):** 유망하지 않은 경로를 미리 차단하여 탐색 공간을 줄입니다.
-- **메모이제이션:** 이미 탐색한 경로의 결과를 저장하여 동일한 경로를 중복 탐색하지 않도록 합니다.
-- **문제 크기 축소:** 문제의 입력 크기를 줄이거나 최적화 알고리즘을 적용하여 해결합니다.
+재귀적 백트래킹은 모든 가능한 해를 탐색하는 과정에서 발생하는 'Combinatorial Explosion'(조합 폭발) 문제를 겪을 수 있습니다. 이는 탐색 공간이 기하급수적으로 증가하면서 처리 속도가 느려지고 메모리 사용이 증가하는 문제입니다. 이러한 문제를 해결하기 위한 몇 가지 주요 전략을 소개합니다.
+
+### 1. 가지치기(Pruning)
+
+가지치기(Pruning)는 유망하지 않은 경로를 미리 차단하여 탐색 공간을 줄이는 기법입니다. 탐색 과정에서 특정 조건을 만족하지 않는 경우 더 이상 진행하지 않고 그 경로를 배제하는 방식으로, 연산 시간을 크게 줄일 수 있습니다.
+
+#### 예시 코드 1: N-Queens 문제에서 가지치기 (Java)
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class NQueens {
+
+    // n-Queens 문제를 해결하는 메소드
+    public static List<int[]> solveNQueens(int n) {
+        List<int[]> result = new ArrayList<>(); // 결과를 저장할 리스트
+        int[] board = new int[n]; // 퀸의 위치를 저장할 배열 (인덱스: 행, 값: 열)
+        solve(0, board, result, n); // 재귀적으로 퀸을 배치
+        return result; // 가능한 모든 해를 반환
+    }
+
+    // 재귀적으로 퀸을 배치하는 메소드
+    private static void solve(int row, int[] board, List<int[]> result, int n) {
+        // 모든 행에 퀸을 배치한 경우 결과에 추가
+        if (row == n) {
+            result.add(board.clone()); // 배열을 복제해서 저장
+            return;
+        }
+
+        // 현재 행(row)에 가능한 모든 열(col) 시도
+        for (int col = 0; col < n; col++) {
+            if (isValid(board, row, col)) { // 유효한 위치인지 검사
+                board[row] = col; // 퀸 배치
+                solve(row + 1, board, result, n); // 다음 행으로 이동
+                board[row] = -1; // 백트랙킹: 현재 행의 퀸 위치를 초기화
+            }
+        }
+    }
+
+    // 현재 퀸의 배치가 유효한지 검사하는 메소드
+    private static boolean isValid(int[] board, int row, int col) {
+        // 현재까지의 행을 검사하여 같은 열이나 대각선에 퀸이 있는지 확인
+        for (int i = 0; i < row; i++) {
+            if (board[i] == col || Math.abs(board[i] - col) == row - i) {
+                return false; // 같은 열 또는 대각선에 퀸이 있음
+            }
+        }
+        return true; // 유효한 위치
+    }
+
+    // 메인 메소드: 예제 실행
+    public static void main(String[] args) {
+        List<int[]> solutions = solveNQueens(4); // 4-Queens 문제 해결
+        for (int[] solution : solutions) {
+            for (int col : solution) {
+                System.out.print(col + " "); // 각 해의 퀸 위치 출력
+            }
+            System.out.println();
+        }
+    }
+}
+```
+
+위 코드에서 `isValid` 메소드는 현재 보드 상태에서 퀸이 놓일 수 있는지를 검사하여 유망하지 않은 경로를 가지치기합니다. 이러한 가지치기 기법을 통해 N-Queens 문제의 탐색 공간을 효율적으로 줄일 수 있습니다.
+
+### 2. 메모이제이션(Memoization)
+
+메모이제이션은 이미 탐색한 경로의 결과를 저장하여 동일한 경로를 중복 탐색하지 않도록 하는 기법입니다. 이는 중복 계산을 피하고 성능을 향상시키는 데 도움이 됩니다.
+
+#### 예시 코드 2: 피보나치 수열 계산에서 메모이제이션 사용 (Java)
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class FibonacciMemoization {
+
+    // 피보나치 수를 저장할 메모이제이션 맵
+    private static Map<Integer, Integer> memo = new HashMap<>();
+
+    // 피보나치 수를 계산하는 메소드
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n; // 기본 조건: 0 또는 1일 때 n을 반환
+        }
+        if (memo.containsKey(n)) {
+            return memo.get(n); // 이미 계산된 값이 있으면 반환
+        }
+
+        // 피보나치 수를 재귀적으로 계산하고 메모이제이션에 저장
+        int result = fibonacci(n - 1) + fibonacci(n - 2);
+        memo.put(n, result);
+        return result; // 결과 반환
+    }
+
+    // 메인 메소드: 예제 실행
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println("Fibonacci of " + n + " is: " + fibonacci(n)); // 피보나치 결과 출력
+    }
+}
+```
+
+위 예시에서 `memo` 맵은 이전에 계산된 피보나치 수의 값을 저장하고, 이미 계산된 값이 있을 경우 재계산하지 않고 저장된 값을 사용합니다. 이를 통해 중복된 계산을 피하고 성능을 크게 향상시킬 수 있습니다.
 
 ## DFS를 사용하는 것이 BFS보다 유리한 경우
 
