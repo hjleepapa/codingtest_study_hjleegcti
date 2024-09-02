@@ -142,15 +142,15 @@ def fibo1_using_stack(n:int): # fibonacci 비재귀 + memoization O(N)
 print(fibo1_using_stack(20))
 ```
 
-재귀함수의 코드를 보면 바이너리 트리의 제일 말단인 leaf( cur ≤ 1)인 경우 값을 return 하는 것을 알 수 있습니다. 스택으로 구현한 비재귀 피보나치도 마찬가지로 제일 말단인 cur ≤ 1가 되는 경우 ret에 값을 더해주는 걸 알 수 있습니다. 
+재귀함수의 코드를 보면 피보나치 구조에서 제일 아래인 n ≤ 1인 경우 값을 return 하는 것을 알 수 있습니다. 스택으로 구현한 비재귀 피보나치도 마찬가지로 제일 말단인 cur ≤ 1가 되는 경우 ret에 값을 더해주는 걸 알 수 있습니다. 
 
 이를 좀 더 빠르게 생략하기 위해 memoization 스타일로 구현했습니다. → else 다음에  
 
 else: 
 
-stack.append(cur-1)
+  stack.append(cur-1)
 
-stack.append(cur-2) 만 적힌 것이 본래 코드입니다. 
+  stack.append(cur-2) 만 적힌 것이 본래 코드입니다. 
 
 ## 실전 문제
 
@@ -185,9 +185,9 @@ False
 
 ### 문제 1. 풀이
 
-이것은 프로그래머스에 올바른 괄호 문제랑 비슷하다. 
+이것은 프로그래머스에 올바른 괄호 문제랑 비슷합니다. 
 
-<tag>의 tag를 전부 stack에 넣는다. 그후 나오는 닫는 태그는 </를 체크하면서 확인할 수 있다.
+<tag>의 tag를 전부 stack에 넣는다. 그후 나오는 닫는 태그는 </를 체크하면서 확인할 수 있습니다.
 
 ```python
 def html_right_tag(html_source:str): # O(N)
