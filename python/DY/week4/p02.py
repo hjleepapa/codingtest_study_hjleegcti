@@ -7,5 +7,5 @@ def trans(n):
     ret = int(rbinary, 2)
     return ret
 
-tmp=4
+tmp=13
 print(trans(tmp))
