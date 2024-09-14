@@ -2,67 +2,67 @@
 
 1. 스택을 이용하여 주어진 문자열을 뒤집는 알고리즘을 설계하고 구현해 보세요. 이 알고리즘의 시간 복잡도와 공간 복잡도는 각각 어떻게 되나요? 스택을 사용하지 않고도 문자열을 뒤집을 수 있는 다른 방법을 설명해 보세요.
 
-- 스택을 이용하여 주어진 문자열을 뒤집는 알고리즘
-    ```python
-    def solution(str):
-        stack = []
-        result = ''
+    - 스택을 이용하여 주어진 문자열을 뒤집는 알고리즘
+        ```python
+        def solution(str):
+            stack = []
+            result = ''
 
-        for c in str:
-            stack.append(c)
-        
-        while len(stack) > 0:
-            result += stack.pop()
-        
-        return result
-    ```
-  - 시간 복잡도: O(N)
-    - for 문 O(N) 그리고 while 문 O(N)
-  - 공간 복잡도: O(N)
-    - 스택 O(N) 그리고 문자열 O(N)
+            for c in str:
+                stack.append(c)
+            
+            while len(stack) > 0:
+                result += stack.pop()
+            
+            return result
+        ```
+        - 시간 복잡도: O(N)
+            - for 문 O(N) 그리고 while 문 O(N)
+        - 공간 복잡도: O(N)
+            - 스택 O(N) 그리고 문자열 O(N)
 
-- 스택을 사용하지 않고도 문자열을 뒤집을 수 있는 방법
-    ```python
-    def solution(str):
-        return ''.join(reversed(str))
-    ```
-  - 내장 함수 사용
+    - 스택을 사용하지 않고도 문자열을 뒤집을 수 있는 방법
+        ```python
+        def solution(str):
+            return ''.join(reversed(str))
+        ```
+        - 내장 함수 사용
 
 2. 스택이 재귀적인 함수 호출과 어떻게 관련이 있는지 설명해 보세요. 재귀 함수를 스택을 사용하여 비재귀적으로 변환하는 방법을 예시를 통해 설명할 수 있나요?
 
-- 스택이 재귀적인 함수 호출과 어떻게 관련이 있는지
-    - 재귀 함수가 호출될 때 스택이 생성되어 콜 스택에 쌓이는 구조
-    - 호출된 함수가 일을 마친 후에 돌아갈 주소도 스택에 저장
-- 재귀 함수를 스택을 사용하여 비재귀적으로 변환하는 방법
-    ```python
-    def factorial(n):
-        if n == 0 or n == 1:
-            return 1
-        else:
-            return n * factorial(n - 1)
-    ```
-
-    ```python
-    def factorial_with_stack(n):
-        stack = []
-        result = 1
-        
-        while n > 1 or stack:
-            if n > 1:
-                stack.append(n)
-                n -= 1
+    - 스택이 재귀적인 함수 호출과 어떻게 관련이 있는지
+        - 재귀 함수가 호출될 때 스택이 생성되어 콜 스택에 쌓이는 구조
+        - 호출된 함수가 일을 마친 후에 돌아갈 주소도 스택에 저장
+    - 재귀 함수를 스택을 사용하여 비재귀적으로 변환하는 방법
+        ```python
+        def factorial(n):
+            if n == 0 or n == 1:
+                return 1
             else:
-                result *= stack.pop()
-        
-        return result
-    ```
+                return n * factorial(n - 1)
+        ```
+
+        ```python
+        def factorial_with_stack(n):
+            stack = []
+            result = 1
+            
+            while n > 1 or stack:
+                if n > 1:
+                    stack.append(n)
+                    n -= 1
+                else:
+                    result *= stack.pop()
+            
+            return result
+        ```
 
 
 # 실전 문제
 ## 문제 1: HTML 태그 유효성 검사
-HTML 문서에서 태그가 올바르게 열리고 닫혔는지 확인하는 프로그램을 작성하세요. <tag> 형태로 열리고 </tag> 형태로 닫혀야 합니다. 태그 이름은 영문 소문자만 사용됩니다.
+HTML 문서에서 태그가 올바르게 열리고 닫혔는지 확인하는 프로그램을 작성하세요. `<tag>` 형태로 열리고 `</tag>` 형태로 닫혀야 합니다. 태그 이름은 영문 소문자만 사용됩니다.
 - 입력: HTML 태그가 포함된 문자열이 주어집니다.
-- 출력: 태그가 올바르게 열리고 닫혔다면 True, 그렇지 않다면 False를 출력합니다.
+- 출력: 태그가 올바르게 열리고 닫혔다면 `True`, 그렇지 않다면 `False`를 출력합니다.
 
 ### 예시 입력/출력
 ```
@@ -80,8 +80,8 @@ False
 ```
 
 ### 입출력 설명
-- 예시 1에서는 <div> 태그가 <p> 태그를 포함하고, 올바르게 닫히므로 True를 반환합니다.
-- 예시 2에서는 <span> 태그가 <div> 태그 내에서 닫히기 때문에 구조가 올바르지 않아 False를 반환합니다.
+- 예시 1에서는 `<div>` 태그가 `<p>` 태그를 포함하고, 올바르게 닫히므로 `True`를 반환합니다.
+- 예시 2에서는 `<span>` 태그가 `<div>` 태그 내에서 닫히기 때문에 구조가 올바르지 않아 `False`를 반환합니다.
 
 ```python
 def solution(str):
