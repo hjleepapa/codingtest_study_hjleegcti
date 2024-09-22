@@ -159,8 +159,15 @@ hanoi(n,1,3)
 
 #### solution:
 ```python
-
-
+def find_factors(n):
+    def helper(n, start):
+        result = []
+        for i in range(start, int(n**0.5) + 1):
+            if n % i == 0:
+                result.append((i, n // i))
+        return result
+    
+    return helper(n, 1)
 ```
 
 
