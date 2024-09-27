@@ -81,7 +81,9 @@ stack을 이용하는 경우 : 괄호 맞추기, undo, 후위표기식, 박스�
 설명하기 앞서 간단한 것부터 정리하고자 합니다:
 
 a. heap은 complete binary tree이므로 현재 노드 기준으로 child node가 왼쪽 → 오른쪽 순서로 생겨야 합니다.
+
 b. Left = 2*current, Right = 2*current + 2 
+
 c. Parent = current//2입니다. binary tree이므로 모든 노드에서 parent는 하나입니다. 
 
 우리의 기본적인 철학은 arr를 추상적인 자료구조인 heap에 맞게 변화하는 겁니다. 여기서 index를 이용해서 heap 구조를 만드려고 합니다. 그러니 대략적으로 이렇게 됩니다. 우리가 사용할 것 0-index인데 shifting을 하듯이 1-index에서 기준으로 루트를 설정하지만, -1를 해준 상태로 List에 적용할 것입니다. 이는 코드를 보면 이해가 될 겁니다. 
