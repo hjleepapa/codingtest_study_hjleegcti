@@ -120,8 +120,8 @@ stack을 이용하는 경우 : 괄호 맞추기, undo, 후위표기식, 박스�
     
     h6. 그렇게 끝나면 h2에서 언급했듯이 기존의 루트값을 리턴하고 끝냅니다. 
     
-    ![                                                             fig : full binary tree](Queue%2010a79769d76f8003ad64d90553708f7d/image-8.png)
-    
+    ![image-8](https://github.com/user-attachments/assets/d2c6f5f0-f966-49c6-af5a-c148d663140f)
+
                                                                  fig : full binary tree
     
 
