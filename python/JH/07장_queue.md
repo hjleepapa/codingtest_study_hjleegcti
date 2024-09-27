@@ -121,7 +121,8 @@ stack을 이용하는 경우 : 괄호 맞추기, undo, 후위표기식, 박스�
     h6. 그렇게 끝나면 h2에서 언급했듯이 기존의 루트값을 리턴하고 끝냅니다. 
     
     ![image-8](https://github.com/user-attachments/assets/d2c6f5f0-f966-49c6-af5a-c148d663140f)
-  	위 그림은 full binary tree의 예시입니다. 
+
+    위 그림은 full binary tree의 예시입니다. 
     
 
 1. 여기서 말하는 연산자란 수학에서 말하는 total order가 되어야 한다고 생각합니다. 만약에 partial order라고 해봅시다. heappop 이후에 heap 구조가 재구성되었다고 가정해봅시다. 그럼 재구성된 heap tree에서 root node의 left, right 둘중 하나는 incomparable하기 때문에 이후 heap 구조에 대한 모순이 생깁니다. 
