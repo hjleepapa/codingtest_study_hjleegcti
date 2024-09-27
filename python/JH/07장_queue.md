@@ -127,7 +127,7 @@ c. Parent = current//2입니다. binary tree이므로 모든 노드에서 parent
     위 그림은 full binary tree의 예시입니다. 
     
 
-1. 여기서 말하는 연산자란 수학에서 말하는 total order가 되어야 한다고 생각합니다. 만약에 partial order라고 해봅시다. heappop 이후에 heap 구조가 재구성되었다고 가정해봅시다. 그럼 재구성된 heap tree에서 root node의 left, right 둘중 하나는 incomparable하기 때문에 이후 heap 구조에 대한 모순이 생깁니다. 
+1). 여기서 말하는 연산자란 수학에서 말하는 total order가 되어야 한다고 생각합니다. 만약에 partial order라고 해봅시다. heappop 이후에 heap 구조가 재구성되었다고 가정해봅시다. 그럼 재구성된 heap tree에서 root node의 left, right 둘중 하나는 incomparable하기 때문에 이후 heap 구조에 대한 모순이 생깁니다. 
 
 ---
 
