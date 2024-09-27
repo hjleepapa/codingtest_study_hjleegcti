@@ -96,7 +96,7 @@ stack을 이용하는 경우 : 괄호 맞추기, undo, 후위표기식, 박스�
     
     (
     
-    비교에 대한 추가설명 : 1. heap[current-1] < heap[parent-1], 
+    비교에 대한 추가설명 : heap[current-1] < heap[parent-1], 
     
     1. 여기서 부등호의 방향은 상황에 따라 다를 수 있습니다. 큰 게 먼저냐, 작은 게 먼저냐. 
     2. current, parent값은 1-index지만, heap은 0-index 기반으로 구현했기에 -1을 빼주고 list에 접근합니다.
